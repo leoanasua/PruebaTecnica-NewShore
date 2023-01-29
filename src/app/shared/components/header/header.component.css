@@ -1,0 +1,14 @@
+.header {
+    background-color: whitesmoke;
+    width: 100%;
+    position: fixed;
+    height: 100px;
+}
+
+.logo {
+    padding: 15px 10px;
+}
+
+.img-logo {
+    width: 200px;
+}
