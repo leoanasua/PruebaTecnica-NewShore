@@ -1,0 +1,28 @@
+.container-cards {
+    left: 50%;
+    position: absolute;
+    top: 80%;
+    transform: translate(-50%, -50%);
+}
+
+h1 {
+    text-decoration: underline;
+}
+
+.card {
+    border-radius: 10px;
+    width: 280px;
+    height: 320px;
+    margin: 0px 2px;
+    box-shadow: 0 2px 10px 0 rgb(0 0 0 / 30%);
+}
+
+.img-fluid {
+    height: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card-title {
+    font-size: 20px;
+}
