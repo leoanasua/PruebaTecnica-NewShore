@@ -1,0 +1,41 @@
+@import "../../../sass/index";
+@import "../../../sass/mixins/layout";
+
+.container {
+  margin-top: 430px;
+}
+
+.modal-loaded {
+  width: 400px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+
+  .loaded {
+    transform: scale(1);
+    animation: pulse 2s infinite;
+
+    .text-loading {
+      font-size: 80px;
+      font-family: $arial;
+      color: $color-blue;
+      font-weight: bold;
+    }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+  }
+
+  70% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0.95);
+  }
+}
