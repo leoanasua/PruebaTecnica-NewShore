@@ -7,9 +7,10 @@ PARA EMPEZAR:
 https://github.com/leoanasua/PruebaTecnica-NewShore.git
 
 ## Prerrequisitos
+Tener instalado NodeJs
 
 ## Instalar paquetes npm
-Instale los npmpaquetes descritos en el package.jsony verifique que funcione:
+Instale los paquetes npm descritos en el package.json y verifique que funcione:
 
 npm install
 npm start
@@ -22,7 +23,13 @@ Ejecute ng serve para un servidor de desarrollo. Navegue a http://localhost:4200
 Estos son los comandos más útiles definidos en package.json:
 
 npm start- ejecuta el compilador TypeScript, la copiadora de activos y un servidor al mismo tiempo, los tres en "modo de observación".
+
 npm run build- ejecuta el compilador de TypeScript y la copiadora de activos una vez.
+
 npm run build:watch- ejecuta el compilador de TypeScript y la copiadora de activos en "modo de observación"; cuando se produzcan cambios en los archivos de origen, se volverán a compilar o copiar en archivos dist/.
+
 npm run lint- se ejecuta tslinten los archivos del proyecto.
-npm run serve- corre lite-server.
+
+npm run serve- ejecuta lite-server.
+
+npm run test- ejecuta pruebas unitarias.
