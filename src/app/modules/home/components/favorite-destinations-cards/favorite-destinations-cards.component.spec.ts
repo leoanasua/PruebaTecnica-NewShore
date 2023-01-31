@@ -29,7 +29,7 @@ describe('FavoriteDestinationsCardsComponent', () => {
           img: 'assets/img/Bgta.jpg',
         },
         {
-          title: 'Madrid',
+          title: 'MAD',
           img: 'assets/img/Madrid.jpg'
         },
         {
