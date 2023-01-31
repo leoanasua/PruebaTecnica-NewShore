@@ -13,11 +13,11 @@ import { environment } from 'src/environments/environment';
 export class FlightsService {
 
   flights: Flight[];
-  graph = {};
+  flightsGraph = {};
   oneWayJourneys: Journey[];
   roundTripJourneys: Journey[];
-  path = [];
-  stops = 0;
+  journeyPath = [];
+  journeyStops = 0;
 
   constructor(private httpClient: HttpClient) { }
 
@@ -29,7 +29,7 @@ export class FlightsService {
       }))
   }
 
-  mapFlights(flightsReponse: FlightsResponse[]) {
+  private mapFlights(flightsReponse: FlightsResponse[]) {
     let flights: Flight[] = [];
     for (let flightResponse of flightsReponse) {
 
@@ -50,44 +50,44 @@ export class FlightsService {
   }
 
   findJourneys(flights: Flight[], origin: string, destination: string, maxStops: number, isRoundTrip: boolean) {
-    this.resetProperties();
+    this.clearProperties();
     this.createFlightsGraph(flights);
-    this.recursiveHasPath(this.graph[origin], origin, destination, maxStops, this.oneWayJourneys);
+    this.recursiveFindJourneysPath(this.flightsGraph[origin], origin, destination, maxStops, this.oneWayJourneys);
 
     if (isRoundTrip) {
-      this.path = [];
-      this.recursiveHasPath(this.graph[destination], destination, origin, maxStops, this.roundTripJourneys);
+      this.journeyPath = [];
+      this.recursiveFindJourneysPath(this.flightsGraph[destination], destination, origin, maxStops, this.roundTripJourneys);
     }
 
     return this.oneWayJourneys;
   }
 
-  createFlightsGraph(flights: Flight[]) {
+  private createFlightsGraph(flights: Flight[]) {
     for (const flight of flights) {
-      this.graph[flight.origin] = this.graph[flight.origin] ?? [];
-      this.graph[flight.origin].push(flight);
+      this.flightsGraph[flight.origin] = this.flightsGraph[flight.origin] ?? [];
+      this.flightsGraph[flight.origin].push(flight);
     }
   }
 
-  recursiveHasPath(flights: Flight[], origin: string, destination: string, maxStops: number, journeys: Journey[]) {
+  private recursiveFindJourneysPath(flights: Flight[], origin: string, destination: string, maxStops: number, journeys: Journey[]) {
     if (flights) {
       for (const flight of flights) {
-        this.path[this.stops] = flight;
+        this.journeyPath[this.journeyStops] = flight;
         if (flight.destination === destination) {
-          journeys.push(this.createJourney(structuredClone(this.path), origin, destination));
-        } else if (this.stops < maxStops) {
-          if (!this.path.find(pathFlight => pathFlight.origin == flight.destination)) {
-            this.stops++;
-            this.recursiveHasPath(this.graph[flight.destination], origin, destination, maxStops, journeys);
-            this.stops--;
+          journeys.push(this.createJourney(structuredClone(this.journeyPath), origin, destination));
+        } else if (this.journeyStops < maxStops) {
+          if (!this.journeyPath.find(pathFlight => pathFlight.origin == flight.destination)) {
+            this.journeyStops++;
+            this.recursiveFindJourneysPath(this.flightsGraph[flight.destination], origin, destination, maxStops, journeys);
+            this.journeyStops--;
           }
-          this.path.pop();
+          this.journeyPath.pop();
         };
       }
     }
   }
 
-  createJourney(path: Flight[], journeyOrigin: string, journeyDestination: string): Journey {
+  private createJourney(path: Flight[], journeyOrigin: string, journeyDestination: string): Journey {
 
     const journey: Journey = {
       flights: path,
@@ -103,13 +103,13 @@ export class FlightsService {
     return journey;
   }
 
-  resetProperties() {
+  private clearProperties() {
     this.flights = [];
-    this.graph = {};
+    this.flightsGraph = {};
     this.oneWayJourneys = [];
     this.roundTripJourneys = [];
-    this.path = [];
-    this.stops = 0;
+    this.journeyPath = [];
+    this.journeyStops = 0;
   }
 }
 
