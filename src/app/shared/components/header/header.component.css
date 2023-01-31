@@ -1,0 +1,15 @@
+.header {
+    background-color: whitesmoke;
+    width: 100%;
+    position: fixed;
+    height: 100px;
+    z-index: 10;
+}
+
+.logo {
+    padding: 15px 10px;
+}
+
+.img-logo {
+    width: 200px;
+}
