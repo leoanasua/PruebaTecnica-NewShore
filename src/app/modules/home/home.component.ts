@@ -41,7 +41,7 @@ export class HomeComponent {
   }
 
   private getActualCurrency() {
-    this.currencyService.requestCurrentcyActualValues()
+    this.currencyService.getCurrencyValues()
       .subscribe({
         next: (_) => { },
         error: (error) => {
