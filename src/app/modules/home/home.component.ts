@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { Flight } from 'src/app/shared/models/flight.interface';
 import { CurrencyService } from 'src/app/services/currency/currency.service';
 import { FlightsService } from 'src/app/services/flights/flights.service';
 import { ErrorModalComponent } from 'src/app/shared/components/error-modal/error-modal.component';
@@ -42,18 +41,19 @@ export class HomeComponent {
   }
 
   private getActualCurrency() {
-    this.currencyService.getCurrentcyActualValues().subscribe({
-      next: (_) => { },
-      error: (error) => {
-        this.loading = false;
-        this.dialogRef.open(ErrorModalComponent, {
-          data: {
-            Mensaje: error.message,
-            message: error.messageDetail
-          }
-        });
-      }
-    });
+    this.currencyService.getCurrencyValues()
+      .subscribe({
+        next: (_) => { },
+        error: (error) => {
+          this.loading = false;
+          this.dialogRef.open(ErrorModalComponent, {
+            data: {
+              Mensaje: error.message,
+              message: error.messageDetail
+            }
+          });
+        }
+      });
   }
 
   private getBookingForm() {
@@ -91,7 +91,7 @@ export class HomeComponent {
     this.flightsService.getFlights()
       .subscribe({
         next: (flights) => {
-          this.flightsService.findJourneys(flights, userOrgin, userDestionation, userStops, isroundTrip)
+          this.flightsService.findJourneys(flights, userOrgin, userDestionation, userStops, isroundTrip);
           const isEmptyJourneys = isroundTrip ? !this.flightsService.oneWayJourneys.length
             && !this.flightsService.roundTripJourneys.length :
             !this.flightsService.oneWayJourneys.length;
@@ -114,7 +114,7 @@ export class HomeComponent {
     return this.bookingForm.hasError('isSameValue');
   }
 
-  openFlightsNotFound() {
+  private openFlightsNotFound() {
     this.dialogRef.open(FlightsNotFoundComponent);
   }
 

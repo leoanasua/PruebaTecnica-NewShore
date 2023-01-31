@@ -13,7 +13,7 @@
                     <app-journey-card [journeys]="oneWayJourneys"></app-journey-card>
                 </ng-container>
                 <ng-container *ngIf="this.roundTripJourneys?.length > 0">
-                    <h1 class="mt-2 text-center">Vuelos de regreso<mat-icon matSuffix>flight_land</mat-icon>
+                    <h1 class="mt-5 text-center">Vuelos de regreso<mat-icon matSuffix>flight_land</mat-icon>
                     </h1>
                     <app-journey-card [journeys]="roundTripJourneys"></app-journey-card>
                 </ng-container>
@@ -23,5 +23,8 @@
                 </app-flights-not-found>
             </ng-container>
         </div>
+    </div>
+    <div class="d-flex padding-button" *ngIf="this.roundTripJourneys?.length > 0">
+        <button (click)="returnToHome()" class="return-home-button">Volver al inicio</button>
     </div>
 </div>

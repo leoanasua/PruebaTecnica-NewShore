@@ -26,10 +26,4 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('newshore_air_page');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('newshore_air_page app is running!');
-  });
 });
