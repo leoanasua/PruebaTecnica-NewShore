@@ -2,6 +2,11 @@
     margin-top: 150px;
 }
 
+h1 {
+    font-weight: bold;
+    color: #38384A;
+}
+
 .card {
     border-radius: 10px;
     width: 280px;

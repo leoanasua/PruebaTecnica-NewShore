@@ -3,6 +3,11 @@
     overflow-y: hidden;
 }
 
+h1 {
+    font-weight: bold;
+    color: #38384A;
+}
+
 .booking-form {
     align-items: center;
     border-radius: 5px;

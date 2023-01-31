@@ -98,8 +98,8 @@
 
 .payments {
     color: honeydew;
+    font-size: 20px;
 }
-
 
 .flight-time .hour {
     font-weight: 900;
@@ -132,4 +132,6 @@
     border-radius: 5px;
     border: none;
     font-size: 15px;
+    width: 150px;
+    height: 50px;
 }
