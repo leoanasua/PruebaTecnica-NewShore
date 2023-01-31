@@ -1,0 +1,49 @@
+.flights-not-found-content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+p {
+    margin: 2em;
+    font-size: 20px;
+    color: #38384A;
+}
+
+
+.modal-title {
+    font-size: 45px;
+    text-align: center;
+}
+
+.modal-error-content {
+    color: #38384A;
+    font-size: 30px;
+    height: 170px;
+    text-align: center;
+    width: 570px;
+}
+
+p {
+    font-size: 24px;
+}
+
+.btn-close-modal {
+    background-color: #151E3B;
+    border-radius: 20px;
+    color: white;
+    font-size: 25px;
+    outline: none;
+    text-align: center;
+    width: 300px;
+    height: 80px;
+}
+
+:host ::ng-deep .mat-dialog-container {
+    border-radius: 20px;
+}
+
+:host ::ng-deep .mat-mdc-dialog-container .mdc-dialog__content {
+    background-color: white;
+}

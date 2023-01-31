@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="d-flex">
+        <button (click)="returnToHome()" class="return-home-button">Volver al inicio</button>
+    </div>
+    <h1 class="text-center flights-text">Vuelos encontrados</h1>
+
+    <div class="row">
+        <div class="col col-12">
+            <div>
+                <ng-container *ngIf="this.oneWayJourneys?.length > 0">
+                    <h1 class="mt-2 text-center">Vuelos de ida<mat-icon matSuffix>flight_takeoff</mat-icon>
+                    </h1>
+                    <app-journey-card [journeys]="oneWayJourneys"></app-journey-card>
+                </ng-container>
+                <ng-container *ngIf="this.roundTripJourneys?.length > 0">
+                    <h1 class="mt-2 text-center">Vuelos de regreso<mat-icon matSuffix>flight_land</mat-icon>
+                    </h1>
+                    <app-journey-card [journeys]="roundTripJourneys"></app-journey-card>
+                </ng-container>
+            </div>
+            <ng-container *ngIf="!this.oneWayJourneys && !this.roundTripJourneys">
+                <app-flights-not-found [showButton]="false" class="mt-5">
+                </app-flights-not-found>
+            </ng-container>
+        </div>
+    </div>
+</div>

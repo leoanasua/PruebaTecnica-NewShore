@@ -1,0 +1,7 @@
+<div mat-dialog-content class="modal-error-content">
+    <h1 class="text-center">{{data?.message || 'Error'}}</h1>
+    <p class="text-center">{{data?.messageDetail || 'Ha ocurrido un error'}}</p>
+  </div>
+  <div class="mat-actions text-center">
+    <button class="btn btn-close-modal mb-3" (click)="onCloseModal()"><strong>Aceptar</strong></button>
+  </div>

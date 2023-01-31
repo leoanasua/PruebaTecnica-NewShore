@@ -1,0 +1,135 @@
+.currency-options {
+    margin-right: 5px;
+    height: 50px;
+    transform: translateY(-10px);
+}
+
+.container-flights {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #151E3B;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.flight-details {
+    margin-left: 2.5rem;
+    max-width: 53rem;
+    min-width: 80%;
+    margin-right: 2.5rem;
+    position: relative;
+}
+
+.flight-details-content {
+    color: white;
+    display: flex;
+    height: 1.375rem;
+    justify-content: center;
+    letter-spacing: normal;
+    margin-bottom: 0.5rem;
+    margin-top: 1.5rem;
+    font-size: 15px;
+}
+
+.flight-path {
+    display: flex;
+    height: 2.7rem;
+}
+
+.flight-path-left {
+    text-align: left;
+    color: white;
+}
+
+.location {
+    font-size: 20px;
+}
+
+.flight-separator.left {
+    width: 100%;
+    color: white;
+}
+
+.flight-separator {
+    align-items: center;
+    display: flex;
+}
+
+.flight-middle {
+    margin: 0 3.4rem;
+    width: 20px;
+    color: white;
+}
+
+.flight-separator.right {
+    width: 100%;
+    color: white;
+}
+
+.flight-separator {
+    align-items: center;
+    display: flex;
+}
+
+.flight-separator-line {
+    height: 0;
+}
+
+.flight-separator-line {
+    border-top: 1px solid white;
+    width: 100%;
+}
+
+.flight-separator-line {
+    height: 0;
+}
+
+.flight-separator-line {
+    border-top: 1px solid white;
+    width: 100%;
+}
+
+.flight-time-right {
+    text-align: right;
+    color: white;
+    font-size: 20px;
+}
+
+.payments {
+    color: honeydew;
+}
+
+
+.flight-time .hour {
+    font-weight: 900;
+    width: 4rem;
+}
+
+.flight-time .hour {
+    color: white;
+    font-stretch: normal;
+    font-weight: 400;
+    letter-spacing: normal;
+    min-width: 2.5rem;
+}
+
+.flight-time .location {
+    color: white;
+    font-stretch: normal;
+    font-weight: 400;
+    letter-spacing: normal;
+}
+
+.flight-details .info-bottom {
+    color: white;
+    letter-spacing: normal;
+    padding-bottom: 1.425rem;
+    text-align: center;
+}
+
+.info-bottom-details {
+    border-radius: 5px;
+    border: none;
+    font-size: 15px;
+}
