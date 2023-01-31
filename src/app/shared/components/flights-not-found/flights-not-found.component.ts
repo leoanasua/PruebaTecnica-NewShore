@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
@@ -7,6 +7,8 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./flights-not-found.component.css']
 })
 export class FlightsNotFoundComponent {
+
+  @Input() showButton = true;
 
   constructor(public readonly modal: MatDialogRef<FlightsNotFoundComponent>) { }
 
