@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { JourneyCardComponent } from './journey-card.component';
+import { NgModule } from '@angular/core';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { JourneyCardComponent } from './journey-card.component';
 
 @NgModule({
   declarations: [

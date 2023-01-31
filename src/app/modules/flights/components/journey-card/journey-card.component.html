@@ -1,5 +1,5 @@
 <div class="container p-0">
-    <div class="d-flex justify-content-end">
+    <div class="d-flex justify-content-end" *ngIf="journeys.length > 0">
         <span class="mr-2">Cambiar moneda:</span>
         <mat-button-toggle-group class="currency-options">
             <mat-button-toggle *ngFor="let c of currencyOptions" [value]="c" (change)="changeCurrency($event.value)"
@@ -36,7 +36,8 @@
             </div>
 
             <p class="d-flex justify-content-center payments">
-                <mat-icon class="mr-2">payments</mat-icon>{{journey.price | currencyExchange: currency | currency: currency}}
+                <mat-icon class="mr-2">payments</mat-icon>{{journey.price | currencyExchange: currency | currency:
+                currency}}
             </p>
 
             <div class="info-bottom mt-2">
