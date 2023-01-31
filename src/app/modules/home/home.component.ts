@@ -90,7 +90,7 @@ export class HomeComponent {
     this.flightsService.getFlights()
       .subscribe({
         next: (flights) => {
-          this.flightsService.findJourneys(flights, userOrgin, userDestionation, userStops, isroundTrip)
+          this.flightsService.findJourneys(flights, userOrgin, userDestionation, userStops, isroundTrip);
           const isEmptyJourneys = isroundTrip ? !this.flightsService.oneWayJourneys.length
             && !this.flightsService.roundTripJourneys.length :
             !this.flightsService.oneWayJourneys.length;
@@ -113,7 +113,7 @@ export class HomeComponent {
     return this.bookingForm.hasError('isSameValue');
   }
 
-  openFlightsNotFound() {
+  private openFlightsNotFound() {
     this.dialogRef.open(FlightsNotFoundComponent);
   }
 
