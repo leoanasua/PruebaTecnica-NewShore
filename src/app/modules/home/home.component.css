@@ -51,3 +51,15 @@
     opacity: 0.5;
     pointer-events: none;
 }
+
+:host ::ng-deep .mat-mdc-radio-button .mdc-radio .mdc-radio__native-control:enabled:checked+.mdc-radio__background .mdc-radio__outer-circle {
+    border-color: #151E3B;
+}
+
+:host ::ng-deep .mat-mdc-radio-button .mdc-radio .mdc-radio__native-control:enabled+.mdc-radio__background .mdc-radio__inner-circle {
+    border-color: #151E3B;
+}
+
+:host ::ng-deep .mat-mdc-radio-button.mat-mdc-radio-checked .mat-ripple-element {
+    background-color: #151E3B;
+}

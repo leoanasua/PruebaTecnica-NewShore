@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { Flight } from 'src/app/shared/models/flight.interface';
 import { CurrencyService } from 'src/app/services/currency/currency.service';
 import { FlightsService } from 'src/app/services/flights/flights.service';
 import { ErrorModalComponent } from 'src/app/shared/components/error-modal/error-modal.component';
