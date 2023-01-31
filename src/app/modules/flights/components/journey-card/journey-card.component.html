@@ -14,7 +14,7 @@
             <div class="flight-details-content">
                 <span>
                     <div>
-                        <span>Número de escalas: {{journey?.flights?.length}}</span>
+                        <span>Número de escalas: {{journey?.flights?.length -1}}</span>
                     </div>
                 </span>
             </div>
@@ -41,7 +41,8 @@
             </p>
 
             <div class="info-bottom mt-2">
-                <button (click)="openJourneyDetails(journey)" class="info-bottom-details">Ver detalles del vuelo</button>
+                <button (click)="openJourneyDetails(journey)" class="info-bottom-details">Ver detalles del
+                    vuelo</button>
             </div>
         </div>
     </div>
