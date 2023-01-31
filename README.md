@@ -13,6 +13,7 @@ Tener instalado NodeJs
 Instale los paquetes npm descritos en el package.json y verifique que funcione:
 
 npm install
+
 npm start
 
 ## Servidor de desarrollo
