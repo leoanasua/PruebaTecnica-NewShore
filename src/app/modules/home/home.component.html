@@ -1,0 +1,73 @@
+<app-header></app-header>
+
+<div class="container p-0">
+    <ng-container *ngIf="!loading; else loadingSection">
+        <h1 class="reservation-text">Reserva tu vuelo</h1>
+        <div class="booking-form">
+            <form [formGroup]="bookingForm" autocomplete="off">
+                <div class="type-flight">
+                    <mat-radio-group formControlName="typeOfFlight">
+                        <mat-radio-button *ngFor="let flight of containerFlightsOptions" [value]="flight.Value"
+                            (change)="changeTypeOfFlight($event.value)">{{flight.ViewValue}}
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </div>
+                <div>
+                    <mat-form-field class="mr-3">
+                        <mat-label class="custom-mat-label">Desde</mat-label>
+                        <input matInput type="text" #input maxlength="3" formControlName="origin" required
+                            (input)="changeValueToUppercase('origin')">
+                        <mat-hint align="end">{{input.value.length || 0}}/3</mat-hint>
+                        <mat-icon matSuffix>flight_takeoff</mat-icon>
+                        <mat-error *ngIf="bookingForm.get('origin')?.hasError('required')">
+                            Por favor, ingrese un origen
+                        </mat-error>
+                        <mat-error *ngIf="bookingForm.get('origin')?.hasError('minlength')">
+                            El campo debe contener exactamente 3 caracteres
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="mr-3">
+                        <mat-label class="custom-mat-label">Hacia</mat-label>
+                        <input matInput type="text" #input maxlength="3" formControlName="destination" required
+                            (input)="changeValueToUppercase('destination')">
+                        <mat-hint align="end">{{input.value.length || 0}}/3</mat-hint>
+                        <mat-icon matSuffix>flight_land</mat-icon>
+                        <mat-error *ngIf="bookingForm.get('destination')?.hasError('required')">
+                            Por favor, ingrese un destino
+                        </mat-error>
+                        <mat-error *ngIf="bookingForm.get('destination')?.hasError('minlength')">
+                            El campo debe contener exactamente 3 caracteres
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="mr-3">
+                        <mat-label class="custom-mat-label">Número de escalas</mat-label>
+                        <input type="number" min="0" matInput formControlName="stops">
+                    </mat-form-field>
+
+                    <button class="search-button ml-3" (click)="getFlights()" [disabled]="bookingForm.invalid"
+                        [ngClass]="{'disabled-button': bookingForm.invalid}">
+                        <span>Buscar vuelos</span>
+                    </button>
+                </div>
+                <ng-container>
+                    <mat-error *ngIf="validateIsTheSameValue() && this.bookingForm.controls['origin'].value">
+                        El destino no puede ser igual al origen
+                    </mat-error>
+                </ng-container>
+            </form>
+        </div>
+        <app-favorite-destinations-cards></app-favorite-destinations-cards>
+    </ng-container>
+
+
+    <ng-template #loadingSection>
+        <div class="d-flex justify-content-center aling-items-center" *ngIf="loading">
+            <mat-spinner></mat-spinner>
+            <p class="loading-text">
+                Cargando...
+            </p>
+        </div>
+    </ng-template>
+</div>
