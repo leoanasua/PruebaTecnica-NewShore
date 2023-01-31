@@ -12,7 +12,7 @@ import { JourneyDetailsComponent } from '../journey-details/journey-details.comp
 export class JourneyCardComponent {
   @Input() journeys: Journey[];
   currency: string;
-  currencyOptions = ['USD', 'EUR', 'MXN']
+  currencyOptions = ['USD', 'EUR', 'MXN'];
 
   constructor(
     private dialogRef: MatDialog,

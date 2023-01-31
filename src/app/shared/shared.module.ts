@@ -20,7 +20,8 @@ import { CurrencyExchangePipe } from './pipes/currency-exchange.pipe';
     { provide: MAT_DIALOG_DATA, useValue: {} },
     { provide: MatDialogRef, useValue: {} }
   ],
-  exports: [HeaderComponent,
+  exports: [
+    HeaderComponent,
     CurrencyExchangePipe,
     FlightsNotFoundComponent
   ]
