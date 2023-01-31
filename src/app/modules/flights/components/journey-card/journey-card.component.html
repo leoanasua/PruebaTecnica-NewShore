@@ -1,6 +1,6 @@
 <div class="container p-0">
     <div class="d-flex justify-content-end" *ngIf="journeys?.length > 0">
-        <span class="mr-2 mt2">Cambiar moneda:</span>
+        <span class="mr-2 mt-2">Cambiar moneda:</span>
         <mat-button-toggle-group class="currency-options">
             <mat-button-toggle *ngFor="let c of currencyOptions" [value]="c" (change)="changeCurrency($event.value)"
                 (click)="currency = c">
