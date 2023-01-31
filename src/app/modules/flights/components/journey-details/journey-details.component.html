@@ -1,0 +1,30 @@
+<h2 mat-dialog-title class="modal-title">Detalles del vuelo</h2>
+<hr>
+<mat-dialog-content class="mat-typography">
+    <ng-container *ngFor="let flight of journey.flights">
+        <div class="timeline-body">
+            <ul class="timeline">
+                <li>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-destination">
+                        <mat-icon matSuffix>flight_takeoff</mat-icon>
+                        Origen: <small><strong>{{flight.origin}}</strong></small>
+                    </div>
+                    <div class="timeline-destination">
+                        <mat-icon matSuffix>flight_land</mat-icon>
+                        Destino: <small><strong>{{flight.destination}}</strong></small>
+                    </div>
+                    <div class="timeline-destination">
+                        <mat-icon>flight</mat-icon>
+                        Operadora: {{flight.transport.flightCarrier}} <br>
+                        Número de vuelo: {{flight.transport.flightNumber}}
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </ng-container>
+</mat-dialog-content>
+<hr>
+<div class="d-flex justify-content-center mb-3">
+    <button class="btn-close-modal" [mat-dialog-close]="true">Cerrar</button>
+</div>

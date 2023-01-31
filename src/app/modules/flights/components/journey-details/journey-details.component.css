@@ -1,0 +1,113 @@
+.modal-title {
+    font-size: 30px;
+    text-align: center;
+}
+
+p {
+    font-size: 24px;
+}
+
+.btn-close-modal {
+    background-color: #151E3B;
+    border-radius: 20px;
+    color: white;
+    font-size: 25px;
+    outline: none;
+    text-align: center;
+    width: 300px;
+    height: 80px;
+}
+
+:host ::ng-deep .mat-dialog-container {
+    border-radius: 20px;
+}
+
+:host ::ng-deep .mat-mdc-dialog-container .mdc-dialog__content {
+    background-color: white;
+}
+
+h3 {
+    font-family: inherit;
+    font-size: 2rem;
+    letter-spacing: 0.1rem;
+    color: #fff;
+    font-weight: normal;
+    margin: 0;
+}
+
+span {
+    font-size: 1.2rem;
+    letter-spacing: 0.2rem;
+    font-weight: normal;
+    color: #fff;
+}
+
+.timeline-body {
+    max-height: 400px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.timeline {
+    padding: 3rem 2rem !important;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: relative;
+    z-index: 2;
+}
+
+.timeline:before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background: #fff;
+    top: 0;
+    right: auto;
+    left: 25px;
+    height: 100%;
+    z-index: -1;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.085),
+        0 1px 0 rgba(0, 0, 0, 0.02);
+}
+
+li {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.timeline-dot {
+    height: 1.5rem;
+    width: 1.5rem;
+    background: #fff;
+    border-radius: 2rem;
+    flex: 0 0 1.5rem;
+    margin-right: auto;
+    margin-top: 6px;
+    box-shadow: 0 0 8px #151E3B;
+}
+
+.timeline-dot::after {
+    content: '';
+    position: absolute;
+    top: 14px;
+    left: 7px;
+    height: 9px;
+    width: 9px;
+    background: #151E3B;
+    border-radius: 50%;
+}
+
+.timeline-origin {
+    font-size: 1.2rem;
+    flex: 0 0 80px;
+    padding: 0.2rem;
+}
+
+.timeline-destination {
+    margin-left: auto;
+    flex: 0 0 200px;
+}
