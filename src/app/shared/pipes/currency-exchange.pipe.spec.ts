@@ -1,8 +1,8 @@
 import { CurrencyExchangePipe } from './currency-exchange.pipe';
 
-xdescribe('CurrencyExchangePipe', () => {
+describe('CurrencyExchangePipe', () => {
   it('create an instance', () => {
-    const pipe = new CurrencyExchangePipe('');
+    const pipe = new CurrencyExchangePipe(null);
     expect(pipe).toBeTruthy();
   });
 });
