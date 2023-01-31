@@ -22,6 +22,18 @@ export class FlightsService {
   constructor(private httpClient: HttpClient) { }
 
   getFlights(): Observable<Flight[]> {
+    const storageFlights = JSON.parse(localStorage.getItem("flights"));
+    if (storageFlights) {
+      return new Observable(observer => {
+        observer.next(storageFlights);
+        observer.complete();
+      })
+    } else {
+      return this.requestFlights();
+    }
+  }
+
+  requestFlights(): Observable<Flight[]> {
     const url = `${environment.apiUrl}/flights/2`;
     return this.httpClient.get<FlightsResponse[]>(url)
       .pipe(map((flightsReponse) => {
@@ -46,6 +58,7 @@ export class FlightsService {
       }
       flights.push(flight);
     }
+    localStorage.setItem("flights", JSON.stringify(flights));
     return flights;
   }
 
@@ -112,5 +125,3 @@ export class FlightsService {
     this.journeyStops = 0;
   }
 }
-
-

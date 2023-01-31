@@ -14,10 +14,24 @@ export class CurrencyService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getCurrentcyActualValues(): Observable<any> {
+  getCurrencyValues(): Observable<Currency> {
+    const storageCurrency = JSON.parse(localStorage.getItem("currency"));
+    if (storageCurrency) {
+      this.data = storageCurrency;
+      return new Observable(observer => {
+        observer.next(storageCurrency);
+        observer.complete();
+      })
+    } else {
+      return this.requestCurrentcyActualValues();
+    }
+  }
+
+  requestCurrentcyActualValues(): Observable<Currency> {
     const url = this.currencyApiUrl;
     return this.httpClient.get<any>(url)
       .pipe(map((response) => {
+        localStorage.setItem("currency", JSON.stringify(response.data));
         return this.data = response.data;
       }))
   }

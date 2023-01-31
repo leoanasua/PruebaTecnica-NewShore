@@ -41,18 +41,19 @@ export class HomeComponent {
   }
 
   private getActualCurrency() {
-    this.currencyService.getCurrentcyActualValues().subscribe({
-      next: (_) => { },
-      error: (error) => {
-        this.loading = false;
-        this.dialogRef.open(ErrorModalComponent, {
-          data: {
-            Mensaje: error.message,
-            message: error.messageDetail
-          }
-        });
-      }
-    });
+    this.currencyService.requestCurrentcyActualValues()
+      .subscribe({
+        next: (_) => { },
+        error: (error) => {
+          this.loading = false;
+          this.dialogRef.open(ErrorModalComponent, {
+            data: {
+              Mensaje: error.message,
+              message: error.messageDetail
+            }
+          });
+        }
+      });
   }
 
   private getBookingForm() {
