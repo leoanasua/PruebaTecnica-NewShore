@@ -1,0 +1,21 @@
+.container-cards {
+    margin-top: 150px;
+}
+
+.card {
+    border-radius: 10px;
+    width: 280px;
+    height: 320px;
+    margin: 0px 2px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.img-fluid {
+    height: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card-title {
+    font-size: 20px;
+}
